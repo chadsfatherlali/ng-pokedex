@@ -1,14 +1,33 @@
 <main class="main">
-  @if (pokemons$ | async; as pokemons) {
-    @for (pokemon of pokemons; track $index) {
+  <app-header></app-header>
+  <section class="content">
+    @for (pokemon of pokemons(); track $index) {
       <app-card
         title="{{ pokemon.name }}"
-        image="{{ pokemon.sprites.other.showdown.front_default }}"
+        image="{{ pokemon.sprites.other.showdown.front_default || pokemon.sprites.front_default }}"
       >
+        <div card-body>
+          <div class="card-body-grid">
+            <div class="card-body-grid-key">ID:</div>
+            <div class="card-body-grid-values">{{ pokemon.id }}</div>
+            <div class="card-body-grid-key">TYPES:</div>
+            <div class="card-body-grid-values">
+              @for (type of pokemon.types; track $index) {
+                <div class="card-body-grid-value">{{ type.type.name }}</div>
+              }
+            </div>
+            <div class="card-body-grid-key">MOVES:</div>
+            <div class="card-body-grid-values">
+              @for (move of pokemon.moves; track $index) {
+                <div class="card-body-grid-value">{{ move.move.name }}</div>
+              }
+            </div>
+          </div>
+        </div>
         <div card-footer>
           <app-button label="GROWL" (click)="growl(pokemon.cries.latest)"></app-button>
         </div>
       </app-card>
     }
-  }
+  </section>
 </main>

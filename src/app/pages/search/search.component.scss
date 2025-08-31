@@ -4,3 +4,50 @@
   gap: 1rem;
   justify-content: center;
 }
+
+.content {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.card-body-grid {
+  height: 150px;
+  overflow: hidden;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.card-body-grid-key, .card-body-grid-values {
+  display: flex;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  margin-bottom: 0.1rem;
+  height: 30px;
+  align-items: center;
+  padding: 0.5rem;
+  justify-content: flex-end;
+}
+
+.card-body-grid-values {
+  flex-direction: column;
+  background-color: inherit;
+  color: inherit;
+  justify-content: inherit;
+  align-items: flex-start;  
+}
+
+.card-body-grid-value {
+  text-align: left;
+}
+
+.card-body-grid-values, .card-body-grid-value {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
