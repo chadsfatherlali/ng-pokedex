@@ -1,0 +1,14 @@
+<div class="card">
+  <header class="card-header">
+    <h2>{{ title }}</h2>
+    <figure class="card-image-border">
+      <img class="card-image" src="{{ image }}" />
+    </figure>
+  </header>
+  <article class="card-body">
+    <ng-content select="[card-body]"></ng-content>
+  </article>
+  <footer class="card-footer">
+    <ng-content select="[card-footer]"></ng-content>
+  </footer>
+</div>

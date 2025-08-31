@@ -1,0 +1,14 @@
+<main class="main">
+  @if (pokemons$ | async; as pokemons) {
+    @for (pokemon of pokemons; track $index) {
+      <app-card
+        title="{{ pokemon.name }}"
+        image="{{ pokemon.sprites.other.showdown.front_default }}"
+      >
+        <div card-footer>
+          <app-button label="GROWL" (click)="growl(pokemon.cries.latest)"></app-button>
+        </div>
+      </app-card>
+    }
+  }
+</main>
